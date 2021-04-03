@@ -9,6 +9,7 @@ import SignUp from "./SignUp";
 import Dashboard from "./Dashboard";
 import Feed from "./Feed";
 import Events from "./Events";
+import Addevent from "./Addevent";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/dashboard" component={Dashboard}/>
         <Route exact path="/feed" component={Feed}/>
         <Route exact path="/events" component={Events}/>
+        <Route exact path="/addevent" component={Addevent}/>
       </Switch>
     </Router>
   );

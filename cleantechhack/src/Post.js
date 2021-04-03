@@ -10,7 +10,6 @@ const Post = ({fullname, city, caption}) => {
             </div>
             <hr/>
            
-
             <img className="post_image" src={`${MY_DOMAIN}/homepic.jpeg`} width="800px" height="550px" alt="post_image"/>
             <h4 style={{fontSize:'20px', fontWeight:'bold'}}>{fullname} <span style={{fontWeight: 'lighter'}}>{caption}</span> </h4> 
 
