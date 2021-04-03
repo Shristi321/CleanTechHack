@@ -53,6 +53,30 @@ const Dashboard = () => {
         }]
     }
 
+    const options2 = {
+        animationEnabled: true,
+        theme: "light2",
+        axisX: {
+            title: "Activity",
+            reversed: true,
+        },
+        axisY: {
+            title: "Times",
+            includeZero: true,
+        },
+        data: [{
+            type: "bar",
+            dataPoints: [
+                { y:  20, label: "Pick up trash" },
+                { y:  10, label: "Eat less meat" },
+                { y:  5, label: "Recycle" },
+                { y:  3, label: "Compost" },
+                { y:  7, label: "Alternative transportation" },
+                { y:  3, label: "Plant tree" },
+            ]
+        }]
+    }
+
     const [data, setData] =  useState({
         firstName: 'First',
         lastName: 'Last',
@@ -105,9 +129,15 @@ const Dashboard = () => {
                 </Row>
             </Container>
             <Container className='impact-summary'>
-                <h4 style={{ color: 'teal', margin: '0 0 2vmin 0'}}>My Impact:</h4>
+                <h4 style={{ color: 'teal', margin: '0 0 2vmin 0'}}>My Points:</h4>
 
                 <CanvasJSChart options = {options}/>
+                
+                
+            </Container>
+            <Container className='impact-summary'>
+                <h4 style={{ color: 'teal', margin: '0 0 2vmin 0'}}>My Impact:</h4>
+                <CanvasJSChart options={options2}/>
                 <Row className='saved-summary'>
                     <Col>
                         <h5>Trees saved: 5</h5>
@@ -127,18 +157,6 @@ const Dashboard = () => {
                     <li className="activity">Activity-2<span><img class="activitiespic" src={`${MY_DOMAIN}/homepic.jpeg`} width="170px" height="170px" alt="activitiespic"/></span></li>
                 </ul>
             </Container>
-    
-            <div className="my_activities">
-                
-               
-            </div>
-    
-            <div className="bargraph">
-                <h2>My Activity:</h2>
-    
-    
-    
-            </div>
 
         </div>
     )

@@ -21,7 +21,7 @@ const Feed = () => {
                     <Nav.Link href="/dashboard">Dashboard</Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
-                    <Button className='ml-auto addpost' inline variant="outline-info" href="/login">+</Button>
+                    <Button className='ml-auto addpostbutton' inline variant="outline-info" href="/login">+</Button>
                 </Container>
             </Navbar>
 
