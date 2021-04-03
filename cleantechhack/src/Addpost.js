@@ -52,11 +52,6 @@ const Addpost = () => {
       options = type.map((el) => <option key={el}>{el}</option>);
     }
 
-
-
-
-
-
     const MY_DOMAIN = 'http://localhost:3000'
     if (type) {
     return (
@@ -145,7 +140,7 @@ const Addpost = () => {
                             <Nav.Link href="/dashboard">Dashboard</Nav.Link>
                             </Nav>
                             </Navbar.Collapse>
-                            <Button className='ml-auto addpost' inline variant="outline-info" href="/login">+</Button>
+                            <Button className='ml-auto addpostbutton' inline variant="outline-info" href="/addpost">+</Button>
                         </Container>
                     </Navbar> 
                 <div className="addpost">
