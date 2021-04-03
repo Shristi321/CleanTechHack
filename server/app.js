@@ -3,8 +3,10 @@ const app = express()
 const port = 3000
 
 var dashboardRouter = require('./routes/dashboard');
+var eventsRouter = require('./routes/events');
 
 app.use('/dashboard', dashboardRouter);
+app.use('/', eventsRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello, world!')
