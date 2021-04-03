@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
-import Alert from 'react-bootstrap/Alert'
 import Col from "react-bootstrap/Col"
 
 const LogIn = () => {
@@ -14,6 +13,7 @@ const LogIn = () => {
         const temp = data
         temp.email = value
         setData(temp)
+        console.log(temp)
     },
     onPassword = ({target:{value}}) => {
         const temp = data
@@ -21,6 +21,21 @@ const LogIn = () => {
         setData(temp)
     },
     handleSubmit = () => {
+        const sendData = async () => {
+            const response = await fetch('ENDPOINT NAME FOR SENDING INFO', {
+            method: 'POST',
+            cors: true,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+            });
+    
+            const res = await response.json();
+
+
+        }
         // send to server to check if valid, if valid, allow login
     }
 
@@ -44,7 +59,7 @@ const LogIn = () => {
                 </Col>
             </Form.Row> 
 
-            <Button href="/dashboard" style={{margin:"2vmin 0 0 0"}} onClick={handleSubmit} variant="info" type="submit">
+            <Button href={`/dashboard/`} style={{margin:"2vmin 0 0 0"}} onClick={handleSubmit} variant="info" type="submit">
                 Submit
             </Button>
             </Form>

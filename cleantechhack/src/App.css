@@ -100,3 +100,55 @@ h1{
 }
 
 
+
+.event_info{
+  border: 1px solid black;
+  width: 65%;
+  float: left;
+}
+
+.event_pic{
+  border: 1px solid black;
+  float: right;
+}
+
+.event{
+  padding: 30px;
+  border: 1px solid rgb(0, 255, 34);
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 1%;
+  background-color: #f4f4f4;
+  clear: both;
+  display: block;
+  overflow: auto;
+}
+
+.attendButton{
+  clear:both;
+  margin: 5px;
+}
+
+.attendEvent{
+  clear: both;
+  background-color: green;
+  color: white;
+  float: right;
+  height: 50px;
+  width: 200px;
+  font-size: 24px;
+
+}
+
+.addpost{
+
+    padding: 30px;
+    border: 0px solid red;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 1%;
+    background-color: #f4f4f4;
+
+}
+
+

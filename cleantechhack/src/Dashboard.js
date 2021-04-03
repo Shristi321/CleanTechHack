@@ -6,18 +6,44 @@ import './App.css'
 import Nav from 'react-bootstrap/Nav'
 import Row from 'react-bootstrap/Row'
 import './dashboard.css'
+import {useState} from 'react'
 
 
 const MY_DOMAIN = 'http://localhost:3000'
 // const profilepic={ padding: '100px'}
 
 const Dashboard = () => {
+    const [data, setData] =  useState({
+        firstName: 'First',
+        lastName: 'Last',
+        location: {
+            city: 'City',
+            state: 'State',       
+        },
+    })
+    const [dataReceived, setDataReceived] = useState(false)
+
+    // async function to call data
+    const callData = async () => {
+        const response = await fetch('ENDPOINT NAME FOR POPULATING DASH', {
+        method: 'GET',
+        });
+
+        const data = await response.json();
+
+        console.log(data.body)
+
+
+        setData(data.body);
+        setDataReceived(true);
+    }
+
     return (
-        <div className="profile">
+
         <div>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand style={{ color: 'teal'}}href="#home">EcoTracker</Navbar.Brand>
+                    <Navbar.Brand style={{ color: 'teal'}}href="/">EcoTracker</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
@@ -26,7 +52,7 @@ const Dashboard = () => {
                     <Nav.Link href="/dashboard">Dashboard</Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
-                    <Button className='ml-auto addpost' inline variant="outline-info" href="/login">+</Button>
+                    <Button className='ml-auto addpost' inline variant="outline-info" href="/addpost">+</Button>
                 </Container>
             </Navbar>
             <Container>
@@ -34,33 +60,30 @@ const Dashboard = () => {
                     <img className='profilepic' src={`${MY_DOMAIN}/homepic.jpeg`}></img>
                 </Row>
                 <Row className="justify-content-md-center">
-                    <h2 style={{margin:'2vmin 0 0 0'}}>First Last</h2>
+                    <h2 style={{margin:'2vmin 0 0 0', padding:'0 0 0 1vmin'}}>{data.firstName+' '+data.lastName}</h2>
+                    <h3 style={{margin:'2.45vmin 0 0 0', padding:'0 1vmin', color:'red'}} >Lv. 10</h3>
                 </Row>
             </Container>
-    
-            <div className="level">
-                <h2><u>Level:</u></h2>
-                <span style={{color: 'red', fontSize:'40px'}} >10</span>
-            </div>
-    
-            <div className="my_activities">
-                <h2>My Activities:</h2>
-    
+            <Container style={{margin:'3vmin 0 0 0'}}>
+                <h4>My Activities:</h4>
                 <ul>
                     <li className="activity">Activity-1<span><img class="activitiespic" src={`${MY_DOMAIN}/homepic.jpeg`} width="170px" height="170px" alt="activitiespic"/></span></li>
                     <li className="activity">Activity-2<span><img class="activitiespic" src={`${MY_DOMAIN}/homepic.jpeg`} width="170px" height="170px" alt="activitiespic"/></span></li>
                 </ul>
-                
+            </Container>
     
+            <div className="my_activities">
+                
+               
             </div>
     
             <div className="bargraph">
                 <h2>My Activity:</h2>
     
+    
+    
             </div>
 
-        </div>
-            
         </div>
     )
 }
