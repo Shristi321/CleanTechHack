@@ -7,6 +7,7 @@ import './App.css'
 import Nav from 'react-bootstrap/Nav'
 import './App.css'
 import {useState} from 'react'
+import OurNav from './OurNav'
 
 const Addevent = () => {
 
@@ -73,20 +74,7 @@ const Addevent = () => {
     const MY_DOMAIN = 'http://localhost:3000'
     return (
       <div>
-        <Navbar bg="light" expand="lg">
-                <Container>
-                    <Navbar.Brand style={{ color: 'teal'}}href="#home">EcoTracker</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                    <Nav.Link href="/feed">Feed</Nav.Link>
-                    <Nav.Link href="/events">Events</Nav.Link>
-                    <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-                    </Nav>
-                    </Navbar.Collapse>
-                    <Button className='ml-auto addpostbutton' inline variant="outline-info" href="/addpost">+</Button>
-                </Container>
-            </Navbar> 
+        <OurNav />
         <div className="addpost">
             <div className="creator_info">
                 <img className="" src={`${MY_DOMAIN}/homepic.jpeg`} width="100px" height="100px" alt="post_image"/>
