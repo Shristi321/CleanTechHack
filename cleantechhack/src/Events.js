@@ -21,7 +21,7 @@ const Events = () => {
                     <Nav.Link href="/dashboard">Dashboard</Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
-                    <Button className='ml-auto addpost' inline variant="outline-info" href="/login">+</Button>
+                    <Button className='ml-auto addpostbutton' inline variant="outline-info" href="/login">+</Button>
                 </Container>
             </Navbar> 
             <Event eventname="Plant a tree" description="Join us to plant a tree"  organizer= "ASDF" city="NYC" points= "5" startTime="21st April 10:00am" endTime="21st April 11:30am" numberOfParticipants="27" />
