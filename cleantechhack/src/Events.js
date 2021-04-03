@@ -6,8 +6,10 @@ import Col from "react-bootstrap/Col"
 import './App.css'
 import Nav from 'react-bootstrap/Nav'
 import './dashboard.css'
+import {useState} from 'react'
 
 const Events = () => {
+ 
     return (
         <div>
             <Navbar bg="light" expand="lg">

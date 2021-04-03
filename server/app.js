@@ -25,3 +25,12 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Listening at port ${port}`)
 })
+
+app.options('*', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'POST,GET,DELETE,PUT,OPTIONS');
+    res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header");
+  
+    res.sendStatus(200);
+  
+  });
