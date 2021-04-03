@@ -5,14 +5,54 @@ import Col from "react-bootstrap/Col"
 import './App.css'
 import Nav from 'react-bootstrap/Nav'
 import Row from 'react-bootstrap/Row'
-import './dashboard.css'
 import {useState} from 'react'
+import './dashboard.css'
+
+import CanvasJSReact from './canvasjs.react'
+
+// var CanvasJS = CanvasJSReact.CanvasJS;
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 
 const MY_DOMAIN = 'http://localhost:3000'
 // const profilepic={ padding: '100px'}
 
 const Dashboard = () => {
+    const options = {
+        animationEnabled: true,
+        exportEnabled: true,
+        theme: "light1", // "light1", "dark1", "dark2"
+        axisY: {
+            title: "Points",
+
+        },
+        axisX: {
+            title: "Week",
+            interval: 1
+        },
+        data: [{
+            type: "line",
+            toolTipContent: "Week {x}: {y}",
+            color: "red",
+            dataPoints: [
+                { x: 1, y: 0 },
+                { x: 2, y: 10 },
+                { x: 3, y: 15 },
+                { x: 4, y: 16 },
+                { x: 5, y: 20 },
+                { x: 6, y: 24 },
+                { x: 7, y: 27 },
+                { x: 8, y: 28 },
+                { x: 9, y: 35 },
+                { x: 10, y: 46 },
+                { x: 11, y: 50 },
+                { x: 12, y: 59 },
+                { x: 13, y: 64 },
+                { x: 14, y: 80 },
+            ]
+        }]
+    }
+
     const [data, setData] =  useState({
         firstName: 'First',
         lastName: 'Last',
@@ -52,7 +92,7 @@ const Dashboard = () => {
                     <Nav.Link href="/dashboard">Dashboard</Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
-                    <Button className='ml-auto addpost' inline variant="outline-info" href="/addpost">+</Button>
+                    <Button className='ml-auto addpostbutton' inline variant="outline-info" href="/addpost">+</Button>
                 </Container>
             </Navbar>
             <Container>
@@ -64,8 +104,24 @@ const Dashboard = () => {
                     <h3 style={{margin:'2.45vmin 0 0 0', padding:'0 1vmin', color:'red'}} >Lv. 10</h3>
                 </Row>
             </Container>
-            <Container style={{margin:'3vmin 0 0 0'}}>
-                <h4>My Activities:</h4>
+            <Container className='impact-summary'>
+                <h4 style={{ color: 'teal', margin: '0 0 2vmin 0'}}>My Impact:</h4>
+
+                <CanvasJSChart options = {options}/>
+                <Row className='saved-summary'>
+                    <Col>
+                        <h5>Trees saved: 5</h5>
+                    </Col>
+                    <Col>
+                        <h5>Water saved: 100 gallons</h5>
+                    </Col>
+                    <Col>
+                        <h5>Fossil fuels saved: 50 gallons</h5>
+                    </Col>
+                </Row>
+            </Container>
+            <Container className='justify-content-md-center activities' >
+                <h4 style={{ color: 'teal'}}>My Activities:</h4>
                 <ul>
                     <li className="activity">Activity-1<span><img class="activitiespic" src={`${MY_DOMAIN}/homepic.jpeg`} width="170px" height="170px" alt="activitiespic"/></span></li>
                     <li className="activity">Activity-2<span><img class="activitiespic" src={`${MY_DOMAIN}/homepic.jpeg`} width="170px" height="170px" alt="activitiespic"/></span></li>

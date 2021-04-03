@@ -1,4 +1,4 @@
-.addpost{
+.addpostbutton{
     border-radius: 4vmin;
     /* height: 3vmin; */
 }
@@ -8,4 +8,25 @@
     margin-top: 10vmin;
     border-radius: 15vmin;
     border: 0.5vmin solid teal;
+}
+
+.impact-summary{
+    margin-top:4vmin;
+    background-color: rgb(247, 247, 247);
+    border-radius: 1vmin;
+    padding-top: 3vmin;
+    padding-bottom: 3vmin;
+
+}
+
+.saved-summary{
+    margin-top:4vmin;
+}
+
+h5 {
+    color:teal;
+}
+
+.activities {
+    margin-top: 4vmin;
 }
