@@ -1,4 +1,4 @@
-import Post from './Post'
+import Event from './Event'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
@@ -7,7 +7,7 @@ import './App.css'
 import Nav from 'react-bootstrap/Nav'
 import './dashboard.css'
 
-const Feed = () => {
+const Events = () => {
     return (
         <div>
             <Navbar bg="light" expand="lg">
@@ -23,13 +23,11 @@ const Feed = () => {
                     </Navbar.Collapse>
                     <Button className='ml-auto addpost' inline variant="outline-info" href="/login">+</Button>
                 </Container>
-            </Navbar>
-
-            <Post fullname="asdf asdf" city="NYC" caption="I walked 3 miles today!" />
-            <Post fullname="fdsa fdsa" city="Madison" caption="Recycled!" />
-            <Post fullname="qwerty" city="Minneapolis" caption="I planted a tree" />
+            </Navbar> 
+            <Event eventname="Plant a tree" description="Join us to plant a tree"  organizer= "ASDF" city="NYC" points= "5" startTime="21st April 10:00am" endTime="21st April 11:30am" numberOfParticipants="27" />
+            <Event eventname="Recycle" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."  organizer= "QWERTY" city="Minneapolis" points= "20" startTime="2nd April 9:00am" endTime="3rd April 1:00pm" numberOfParticipants="35" />
         </div>
     )
 }
 
-export default Feed
+export default Events

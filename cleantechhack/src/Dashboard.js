@@ -45,7 +45,6 @@ const Dashboard = () => {
                     <Nav.Link href="/dashboard">Dashboard</Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
-                    <Button className='ml-auto addpost' inline variant="outline-info" href="/login">+</Button>
                 </Container>
             </Navbar>
             <Container>
@@ -65,12 +64,13 @@ const Dashboard = () => {
                     <li className="activity">Activity-1<span><img class="activitiespic" src={`${MY_DOMAIN}/homepic.jpeg`} width="170px" height="170px" alt="activitiespic"/></span></li>
                     <li className="activity">Activity-2<span><img class="activitiespic" src={`${MY_DOMAIN}/homepic.jpeg`} width="170px" height="170px" alt="activitiespic"/></span></li>
                 </ul>
-                
-    
+               
             </div>
     
             <div className="bargraph">
                 <h2>My Activity:</h2>
+    
+    
     
             </div>
 
