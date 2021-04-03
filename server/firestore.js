@@ -14,7 +14,7 @@ var createDocument = async (collection, data) => {
     console.log('Data')
     console.log(data);
     console.log(collection);
-    const docRef = db.collection(collection).doc(data.docname);
+    const docRef = db.collection(collection).doc(data.name);
     await docRef.set(data);
 } 
 

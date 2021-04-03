@@ -55,10 +55,11 @@ const Addevent = () => {
   }
 
   const onSubmit = () => {
+    console.log(data)
     const postEvent = async () => {
       await fetch('http://localhost:3001/event', {
       method: 'POST',
-      cors: true,
+      mode: 'cors',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

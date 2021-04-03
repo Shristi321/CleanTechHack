@@ -43,14 +43,16 @@ exports.get_events = (req, res) => {
 
 // Handle User information update on POST.
 exports.create_events = async (req, res) => {
-
+    console.log(req)
     var a = {
-    name: req.body.title,
-    description: req.body.description,
-    location: req.body.city,
-    points: req.body.points,
-    docname: req.body.title
+        name: req.body.data.name,
+        description: req.body.data.description,
+        location: req.body.data.location,
+        points: req.body.data.points,
+        startTime: req.body.data.startTime,
+        endTime: req.body.data.endTime
     };
+
 
     await createDocument('event', a)
 
@@ -59,7 +61,7 @@ exports.create_events = async (req, res) => {
 
 // Display User activity history on GET.
 exports.edit_events = (req, res) => {
-    res.send('Not implemented');
+    res.send('Not implemented'); 
 };
 
 // Display User posts on GET.
