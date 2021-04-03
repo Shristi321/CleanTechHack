@@ -85,7 +85,7 @@ h1{
 
 .post{
   padding: 30px;
-  border: 1px solid red;
+  border: 0px solid red;
   width: 50%;
   margin-left: 25%;
   margin-top: 1%;
@@ -102,19 +102,19 @@ h1{
 
 
 .event_info{
-  border: 1px solid black;
+  border: 0px solid black;
   width: 65%;
   float: left;
 }
 
 .event_pic{
-  border: 1px solid black;
+  border: 0px solid black;
   float: right;
 }
 
 .event{
   padding: 30px;
-  border: 1px solid rgb(0, 255, 34);
+  border: 0px solid rgb(0, 255, 34);
   width: 50%;
   margin-left: 25%;
   margin-top: 1%;
