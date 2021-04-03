@@ -1,4 +1,4 @@
-export default function UserPost(imageURL, task, caption, date, duration, eventType) {
+exports.UserPost = function UserPost(imageURL, task, caption, date, duration, eventType) {
     this.imageURL = imageURL;
     this.task = task;
     this.caption = caption;

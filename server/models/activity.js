@@ -1,4 +1,4 @@
-export default function Activity(name, description, points, organizer, date) {
+exports.activity =  function Activity(name, description, points, organizer, date) {
     this.name = name;
     this.description = description;
     this.points = points;
