@@ -11,6 +11,7 @@ const Event = ({eventname, description, organizer, city, points, startTime, endT
             <h3>{eventname}</h3>
 
             <div className="event_info">
+                <br/>
                 <label style={{fontWeight:'bold'}} > Description: </label> <p>{description}</p>
                 <label style={{fontWeight:'bold'}} > Organizer: </label> {organizer}<br/>
                 <label style={{fontWeight:'bold'}} > Location: </label> {city}<br/>
