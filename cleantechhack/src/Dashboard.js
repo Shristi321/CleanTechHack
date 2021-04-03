@@ -15,8 +15,8 @@ const Dashboard = () => {
             
         <section className="profilepicture">
 
-        <a href="#home"><img id="profilepic" src={`${MY_DOMAIN}/homepic.jpeg`} width="170px" height="170px" alt="profilepic"/></a>
-        <span style={{color: 'red', fontSize:'40px', textAlign:'revert'}} >Full Name</span>
+        <a><img id="profilepic" src={`${MY_DOMAIN}/homepic.jpeg`} width="170px" height="170px" alt="profilepic"/></a>
+        <span style={{color: 'red', fontSize:'40px'}} >Full Name</span>
         </section>
         <hr/>
 
@@ -30,6 +30,7 @@ const Dashboard = () => {
 
             <ul>
                 <li className="activity">Activity-1<span><img class="activitiespic" src={`${MY_DOMAIN}/homepic.jpeg`} width="170px" height="170px" alt="activitiespic"/></span></li>
+                <li className="activity">Activity-2<span><img class="activitiespic" src={`${MY_DOMAIN}/homepic.jpeg`} width="170px" height="170px" alt="activitiespic"/></span></li>
                 <li className="activity">Activity-2<span><img class="activitiespic" src={`${MY_DOMAIN}/homepic.jpeg`} width="170px" height="170px" alt="activitiespic"/></span></li>
             </ul>
             
