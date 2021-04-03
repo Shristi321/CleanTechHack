@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.srcimg {
+  height: 40vmin;
+  margin: 0;
+}
+
+h1{
+  height: 20vmin;
+}
+
+
