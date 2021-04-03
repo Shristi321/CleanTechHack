@@ -4,6 +4,9 @@ import Button from 'react-bootstrap/Button'
 import Col from "react-bootstrap/Col"
 import './App.css'
 import Nav from 'react-bootstrap/Nav'
+import Row from 'react-bootstrap/Row'
+import './dashboard.css'
+
 
 const MY_DOMAIN = 'http://localhost:3000'
 // const profilepic={ padding: '100px'}
@@ -25,14 +28,14 @@ const Dashboard = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            {/* <div className="profile">
-            
-            <section className="profilepicture">
-    
-            <a href="#home"><img id="profilepic" src={`${MY_DOMAIN}/homepic.jpeg`} width="170px" height="170px" alt="profilepic"/></a>
-            <span style={{color: 'red', fontSize:'40px', textAlign:'revert'}} >Full Name</span>
-            </section>
-            <hr/> */}
+            <Container>
+                <Row className="justify-content-md-center">
+                    <img className='profilepic' src={`${MY_DOMAIN}/homepic.jpeg`}></img>
+                </Row>
+                <Row className="justify-content-md-center">
+                    <h2 style={{margin:'2vmin 0 0 0'}}>First Last</h2>
+                </Row>
+            </Container>
     
             <div className="level">
                 <h2><u>Level:</u></h2>
