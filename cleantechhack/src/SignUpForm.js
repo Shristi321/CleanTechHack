@@ -41,6 +41,8 @@ const SignUpForm = () => {
         temp.email = value
         setData(temp)
 
+        console.log(temp)
+
     }, 
     onPassword = ({target:{value}}) => {
         const temp = data
@@ -82,6 +84,21 @@ const SignUpForm = () => {
     handleSubmit = (e) => {
         //endpoint stuff, send data to server
         console.log(JSON.stringify(data))
+        const sendData = async () => {
+            const response = await fetch('ENDPOINT NAME FOR SENDING INFO', {
+            method: 'POST',
+            cors: true,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+            });
+    
+            const res = await response.json();
+
+            
+        }
 
     }
 
@@ -143,7 +160,7 @@ const SignUpForm = () => {
                     </Col>
                 </Form.Row>
     
-                <Button href="/dashboard" style={{margin:"2vmin 0 0 0"}} onClick={handleSubmit} variant="info" type="submit">
+                <Button href={`/dashboard/${data.email}`} style={{margin:"2vmin 0 0 0"}} onClick={handleSubmit} variant="info" type="submit">
                     Submit
                 </Button>
                 </Form>
