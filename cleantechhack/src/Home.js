@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import Col from "react-bootstrap/Col"
 import './App.css'
 
-const MY_DOMAIN = 'http://localhost:3001'
+const MY_DOMAIN = 'http://localhost:3000'
 const Home = () => {
     const rowStyle = { height: '70px', margin: '15vmin ' };
     const buttonStyle = {margin: '30vmin'}
