@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 var bodyParser = require('body-parser')
 require('./firestore');
-const port = 3000
+const port = 3001
 
 var dashboardRouter = require('./routes/dashboard');
 var eventsRouter = require('./routes/events');

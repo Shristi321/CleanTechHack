@@ -4,7 +4,7 @@ var router = express.Router();
 var eventController = require('../controllers/eventController');
 
 // GET request for all events
-router.get('/event', eventController.get_events);
+router.get('/event/:city', eventController.get_events);
 
 // POSR request for creating an event
 router.post('/event', eventController.create_events);

@@ -1,6 +1,6 @@
 const admin = require('firebase-admin');
 
-var serviceAccount = require('../../service-account-file.json');
+var serviceAccount = require('../service-account-file.json');
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
@@ -10,12 +10,22 @@ admin.initializeApp({
 const db = admin.firestore();
 
 
-var createDocument = async (collection, data) => {
-    console.log('Data')
-    console.log(data);
-    console.log(collection);
+const createDocument = async (collection, data) => {
     const docRef = db.collection(collection).doc(data.docname);
     await docRef.set(data);
 } 
 
-module.exports = {createDocument};
+
+const getEvents = async (city) => {
+    const docRef = db.collection('event');
+    const snapshot = await docRef.where('location', '==', city).get();
+    var data=[];
+    snapshot.forEach(doc => {
+        data.push(doc.data());
+      });
+    
+      return data;
+
+} 
+
+module.exports = {createDocument, getEvents};
