@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Alert from 'react-bootstrap/Alert'
-import Row from 'react-bootstrap/Row'
 import Col from "react-bootstrap/Col"
 
 //build password confirmation?
@@ -47,7 +46,6 @@ const SignUpForm = () => {
         const temp = data
         temp.password = value
         setData(temp)
-
     }, 
     onCity = ({target:{value}}) => {
         const temp = data
@@ -145,7 +143,7 @@ const SignUpForm = () => {
                     </Col>
                 </Form.Row>
     
-                <Button style={{margin:"2vmin 0 0 0"}} onClick={handleSubmit} variant="info" type="submit">
+                <Button href="/dashboard" style={{margin:"2vmin 0 0 0"}} onClick={handleSubmit} variant="info" type="submit">
                     Submit
                 </Button>
                 </Form>
@@ -208,7 +206,7 @@ const SignUpForm = () => {
                     </Col>
                 </Form.Row>
 
-                <Button disabled style={{margin:"2vmin 0 0 0"}} onClick={handleSubmit} variant="info" type="submit">
+                <Button  disabled style={{margin:"2vmin 0 0 0"}} onClick={handleSubmit} variant="info" type="submit">
                     Submit
                 </Button>
                 </Form>
