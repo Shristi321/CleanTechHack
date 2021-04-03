@@ -43,23 +43,28 @@ const Addevent = () => {
                 </div>
                 
                 <div className="form-group">
-                <label style={{fontSize:'18px', fontWeight:'bold'}}>Derscription:</label>
+                <label style={{fontSize:'18px', fontWeight:'bold'}}>Description:</label>
                 <textarea className="form-control" type="textarea" name="description" id="description" placeholder="Write the description of the event" maxlength="140" rows="7"></textarea>
                 </div>
 
                 <div className="form-group">
+                    <label style={{fontSize:'18px', fontWeight:'bold'}}>Location</label>
+                  <input type="text" className="form-control" id="city" name="city" placeholder="Location of the city" required />
+                </div>
+
+                <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>Points Given:</label>
-                  <input type="text" className="form-control" id="points" name="points" placeholder="Title" required />
+                  <input type="text" className="form-control" id="points" name="points" placeholder="Points participants will earn" required />
                 </div>
 
                 <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>Start Time:</label>
-                  <input type="text" className="form-control" id="startTime" name="startTime" placeholder="Title" required />
+                  <input type="text" className="form-control" id="startTime" name="startTime" placeholder="Start Time" required />
                 </div>
 
                 <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>End Time:</label>
-                  <input type="text" className="form-control" id="endTime" name="endTime" placeholder="Title" required />
+                  <input type="text" className="form-control" id="endTime" name="endTime" placeholder="End Time" required />
                 </div>
                    
               <button type="button" id="submit" name="submit" className="btn btn-primary pull-right">Add Event</button>
