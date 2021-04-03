@@ -6,9 +6,14 @@ import Col from "react-bootstrap/Col"
 import './App.css'
 import Nav from 'react-bootstrap/Nav'
 import './dashboard.css'
+<<<<<<< HEAD
 import OurNav from './OurNav'
+=======
+import {useState} from 'react'
+>>>>>>> fa377967074942fbb7b198ef88e8d24a05137d36
 
 const Events = () => {
+ 
     return (
         <div>
             <OurNav />
