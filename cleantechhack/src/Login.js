@@ -27,16 +27,13 @@ const LogIn = () => {
     console.log(data)
     return (
         <Container>
-            <h1 style={{height:'9vmin',margin:'10vmin 0 0 1vmin', color: 'teal'}}>Log in</h1>   
+            <h1 style={{height:'9vmin',margin:'10vmin 0 0 0', color: 'teal'}}>Log in</h1>   
             <Form>
             <Form.Row>
                 <Col>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control onChange={onEmail} type="email" placeholder="myname@example.com" />
-                        <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                        </Form.Text>
                     </Form.Group>
                 </Col>
                 <Col>
