@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import Col from "react-bootstrap/Col"
 import './App.css'
 
-const MY_DOMAIN = 'http://localhost:3001'
+const MY_DOMAIN = 'http://localhost:3000'
 const Home = () => {
     const rowStyle = { height: '70px', margin: '15vmin ' };
     const buttonStyle = {margin: '30vmin'}
@@ -17,12 +17,14 @@ const Home = () => {
 
         <div>   
             <Navbar bg="light" expand="lg">
-            <Navbar.Brand style={logoStyle}href="#home">EcoTracker</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            {/* <Navbar.Collapse id="basic-navbar-nav"> */}
+                <Container>
+                    <Navbar.Brand style={logoStyle}href="#home">EcoTracker</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    {/* <Navbar.Collapse id="basic-navbar-nav"> */}
 
-            <Button className='ml-auto' inline variant="outline-info" href="/login">Log In</Button>
-            {/* </Navbar.Collapse> */}
+                    <Button className='ml-auto' inline variant="outline-info" href="/login">Log In</Button>
+                    {/* </Navbar.Collapse> */}
+                </Container>
             </Navbar>
             <Container>
                 <Row className="justify-content-md-center" style={rowStyle}>

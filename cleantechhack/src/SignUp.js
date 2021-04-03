@@ -5,7 +5,6 @@ import Container from 'react-bootstrap/Container'
 
 import SignUpForm from './SignUpForm'
 const SignUp = () => {
-    
    
     return (
         

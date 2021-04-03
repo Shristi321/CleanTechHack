@@ -1,0 +1,11 @@
+.addpost{
+    border-radius: 4vmin;
+    /* height: 3vmin; */
+}
+
+.profilepic{
+    height: 30vmin;
+    margin-top: 10vmin;
+    border-radius: 15vmin;
+    border: 0.5vmin solid teal;
+}
