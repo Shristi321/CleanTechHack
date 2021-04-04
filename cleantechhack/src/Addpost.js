@@ -11,93 +11,97 @@ import OurNav from './OurNav'
 import {useState} from 'react'
 
 const Addpost = () => {
-
-
-
-
-    const [data, setData] = useState({
-        activityType: '',
-        description: '',
-        event_picture: '',
-        
-      })
-    
-      const onActivityType = ({target:{value}}) => {
-        const temp = data
-        temp.name = value
-        setData(temp)
-      }
-    
-      const onDescription = ({target:{value}}) => {
-        const temp = data
-        temp.description = value
-        setData(temp)
-      }
-
-      const [selected, setSelected] = React.useState("");
+  const [data, setData] = useState({
+      activityType: '',
+      additionalInfo: '',
+      description: '',
+      event_picture: '',
+  })
   
-      /** Function that will set different values to state variable
-       * based on which dropdown is selected
-       */
-      const changeSelectOptionHandler = (event) => {
-        setSelected(event.target.value);
-        const temp=data;
-        temp.activityType = event.target.value
-        setData(temp);
-      };
+  const onAdditionalInfo= (e) => {
+    const temp = data
+    temp.additionalInfo = e.target.value
+    setData(temp)
+    console.log(e.target.value)
+  }
+
+  const onDescription = ({target:{value}}) => {
+    const temp = data
+    temp.description = value
+    setData(temp)
+  }
+
+  const [selected, setSelected] = React.useState("");
+  
+  /** Function that will set different values to state variable
+   * based on which dropdown is selected
+   */
+  const changeSelectOptionHandler = (event) => {
+    setSelected(event.target.value);
+    const temp=data;
+    temp.activityType = event.target.value
+    if (event.target.value === 'Eating less meat') {
+      temp.additionalInfo = 'Omnivore'
+    } else if (event.target.value === 'Transit') {
+      temp.additionalInfo = 'Carpooling'
+    }
+    setData(temp);
+    console.log(temp)
+  
+  };
     
       
     
-      const onSubmit = () => {
-        console.log(data)
-        const postNewPost = async () => {
-          await fetch('http://localhost:3001/event', {
-          method: 'POST',
-          mode: 'cors',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({data}),
-          });
-        }
-        postNewPost()
-        console.log('Your post is posted')
-      }
+  const onSubmit = () => {
+    console.log(data)
+    // const postNewPost = async () => {
+    //   await fetch('http://localhost:3001/event', {
+    //   method: 'POST',
+    //   mode: 'cors',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({data}),
+    //   });
+    // }
+    // postNewPost()
+    console.log('Your post is posted')
+  }
 
 
 
 
    
     
-    /** Different arrays for different dropdowns */
+  /** Different arrays for different dropdowns */
    
-    const meat = ["Omnivore", "Vegeterian"];
-    const transit = ["Carpooling", "Walking", "Biking", "Public Transit"];
-    
-    /** Type variable to store different array for different dropdown */
-    let type = null;
-    
-    /** This will be used to create set of options that user will see */
-    let options = null;
-    
-    /** Setting Type variable according to dropdown */
-    if (selected === "Eating less meat") {
-      type = meat;
-    } if (selected === "Transit") {
-      type = transit;
-    }
-    
-    
-    /** If "Type" is null or undefined then options will be null,
-     * otherwise it will create a options iterable based on our array
-     */
-    if (type) {
-      options = type.map((el) => <option key={el}>{el}</option>);
-    }
+  const meat = ["Omnivore", "Vegeterian"];
+  const transit = ["Carpooling", "Walking", "Biking", "Public Transit"];
+  
+  /** Type variable to store different array for different dropdown */
+  let type = null;
+  
+  /** This will be used to create set of options that user will see */
+  let options = null;
+  
+  /** Setting Type variable according to dropdown */
+  if (selected === "Eating less meat") {
+    type = meat;
+  } if (selected === "Transit") {
+    type = transit;
+  }
+  
+  
+  /** If "Type" is null or undefined then options will be null,
+   * otherwise it will create a options iterable based on our array
+   */
+  if (type) {
+    options = type.map((el,i) => <option value={el} key={i}>{el}</option>);
+  }
 
-    const MY_DOMAIN = 'http://localhost:3000'
-    if (type) {
+  const MY_DOMAIN = 'http://localhost:3000'
+  if (type) {
     return (
         <div>
             <OurNav />
@@ -133,7 +137,7 @@ const Addpost = () => {
         </div>
 
         <div>
-          <select className="form-control" name="activityType" id="activityType">
+          <select onChange={onAdditionalInfo} className="form-control" name="activityType" id="activityType">
             {
               /** This is where we have used our options variable */
               options

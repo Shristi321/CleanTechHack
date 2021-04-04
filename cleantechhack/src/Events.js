@@ -9,7 +9,16 @@ import './dashboard.css'
 import OurNav from './OurNav'
 
 const Events = () => {
- 
+    const getEvents = async () => {
+        const response = await fetch('http://localhost:3001/event/oakland', {
+            method: 'GET',
+            mode: 'cors',
+        });
+
+        return response
+    }
+
+    console.log(getEvents())
     return (
         <div>
             <OurNav />
