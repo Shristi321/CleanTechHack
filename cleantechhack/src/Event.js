@@ -27,7 +27,7 @@ const Event = ({eventname, description, organizer, city, points, startTime, endT
             </div>
 
             <div className="event_pic">
-                <img className="event_pic" src={`${MY_DOMAIN}/homepic.jpeg`} width="450px" height="250px" alt="post_image"/>
+                <img className="event_pic" src={`${MY_DOMAIN}/beachtrash.jpeg`} width="450px" height="250px" alt="post_image"/>
             </div>
 
             <div className="attendButton" >
