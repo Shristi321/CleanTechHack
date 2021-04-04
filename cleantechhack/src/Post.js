@@ -1,21 +1,34 @@
+import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
+import Col from "react-bootstrap/Col"
 import './App.css'
-const Post = ({fullname, city, caption}) => {
+import Nav from 'react-bootstrap/Nav'
+import Row from 'react-bootstrap/Row'
+
+const Post = ({fullname, city, caption, date}) => {
     const MY_DOMAIN = 'http://localhost:3000'
     return (
-        <div className="post">
-            <div className="creator_info">
-                <img className="" src={`${MY_DOMAIN}/homepic.jpeg`} width="100px" height="100px" alt="post_image"/>
+        <Container className='post'>
+            
+            <Row className="creator_info">
+                <img className="userpic" src={`${MY_DOMAIN}/homepic.jpeg`} alt="post_image"/>
                 
-                <span style={{fontSize:'20px', fontWeight:'bold'}}>{fullname}, {city}</span>
-            </div>
-            <hr/>
+                <span style={{marginTop: '1.4vmin',fontSize:'1.5vmin', fontWeight:'bold'}}>{fullname}, {city}</span>
+                <Col md={3} className="ml-auto">
+                    <p className='date'>{date}</p>
+                </Col>
+            </Row>
            
-            <img className="post_image" src={`${MY_DOMAIN}/homepic.jpeg`} width="800px" height="550px" alt="post_image"/>
-            <h4 style={{fontSize:'20px', fontWeight:'bold'}}>{fullname} <span style={{fontWeight: 'lighter'}}>{caption}</span> </h4> 
+            <Row className="justify-content-md-center">
+            <img className="post_image" src={`${MY_DOMAIN}/homepic.jpeg`} alt="post_image"/>
+            </Row>
+            <h4 style={{marginTop: '3vmin', marginLeft: '1vmin',fontSize:'1.5vmin', fontWeight:'bold'}}>{fullname} <span style={{fontWeight: 'lighter'}}>{caption}</span> </h4> 
 
             <br/>
             
-        </div>
+        
+        </Container>
     )
 }
 

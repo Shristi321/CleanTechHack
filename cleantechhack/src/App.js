@@ -11,6 +11,7 @@ import Feed from "./Feed";
 import Events from "./Events";
 import Addevent from "./Addevent";
 import Addpost from "./Addpost";
+import TestNav from "./OurNav";
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/events" component={Events}/>
         <Route exact path="/addevent" component={Addevent}/>
         <Route exact path="/addpost" component={Addpost}/>
+        <Route exact path="/testnav" component={TestNav}/>
       </Switch>
     </Router>
   );

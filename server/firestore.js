@@ -10,22 +10,28 @@ admin.initializeApp({
 const db = admin.firestore();
 
 
-const createDocument = async (collection, data) => {
-    const docRef = db.collection(collection).doc(data.docname);
+var createDocument = async (collection, data) => {
+    console.log('Data')
+    console.log(data);
+    console.log(collection);
+    const docRef = db.collection(collection).doc(data.name);
     await docRef.set(data);
 } 
 
-
-const getEvents = async (city) => {
-    const docRef = db.collection('event');
-    const snapshot = await docRef.where('location', '==', city).get();
-    var data=[];
-    snapshot.forEach(doc => {
-        data.push(doc.data());
-      });
+var readInfo = async (collection) => {
+    const snapshot = await db.collection(collection).where('location', '==', 'Oakland').get();
+    if (snapshot.empty) {
+    console.log('No matching documents.');
+    return;
+    }  
     
-      return data;
+    var data = []
+    snapshot.forEach(doc => {
+    const item = doc.data()
+    data.push(item)
+    });
 
-} 
+    return data
+}
 
-module.exports = {createDocument, getEvents};
+module.exports = {createDocument, readInfo};

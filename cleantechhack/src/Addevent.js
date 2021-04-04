@@ -6,26 +6,88 @@ import Col from "react-bootstrap/Col"
 import './App.css'
 import Nav from 'react-bootstrap/Nav'
 import './App.css'
+import {useState,useEffect} from 'react'
+import OurNav from './OurNav'
+import * as React from 'react';
+import DateTimePicker from 'react-datetime-picker';
+
 
 const Addevent = () => {
 
+  const [data, setData] = useState({
+    name: '',
+    description: '',
+    location: '',
+    startTime: '',
+    endTime: '',
+    points: '',
+    date: '',
+  })
+
+  const [start_time, setStartTime] = useState(new Date()); 
+  const [end_time, setEndTime] = useState(new Date());   
+
+  useEffect(()=> {
+    const temp = data
+
+    // make start time and end time look prettier!!
+    temp.startTime = start_time
+    temp.endTime = end_time
+    setData(temp)
+  },[start_time,end_time])
+
+  const onName = ({target:{value}}) => {
+    const temp = data
+    temp.name = value
+    setData(temp)
+  }
+
+  const onDescription = ({target:{value}}) => {
+    const temp = data
+    temp.description = value
+    setData(temp)
+  }
+  const onLocation = ({target:{value}}) => {
+    const temp = data
+    temp.location = value
+    setData(temp)
+  }
+
+
+  const onPoints = ({target:{value}}) => {
+    const temp = data
+    temp.points = value
+    setData(temp)
+    console.log(temp);
+    console.log(temp)
+  }
+
+  // const onDate = ({target:{value}}) => {
+  //   const temp = data
+  //   temp.date = value
+  //   setData(temp)
+  // }
+
+  const onSubmit = () => {
+    console.log(data)
+    const postEvent = async () => {
+      await fetch('http://localhost:3001/event', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({data}),
+      });
+    }
+    postEvent()
+    console.log('event posted')
+  }
     const MY_DOMAIN = 'http://localhost:3000'
     return (
       <div>
-        <Navbar bg="light" expand="lg">
-                <Container>
-                    <Navbar.Brand style={{ color: 'teal'}}href="#home">EcoTracker</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                    <Nav.Link href="/feed">Feed</Nav.Link>
-                    <Nav.Link href="/events">Events</Nav.Link>
-                    <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-                    </Nav>
-                    </Navbar.Collapse>
-                    <Button className='ml-auto addpost' inline variant="outline-info" href="/login">+</Button>
-                </Container>
-            </Navbar> 
+        <OurNav />
         <div className="addpost">
             <div className="creator_info">
                 <img className="" src={`${MY_DOMAIN}/homepic.jpeg`} width="100px" height="100px" alt="post_image"/>
@@ -39,35 +101,52 @@ const Addevent = () => {
               <br styles="clear:both" />
                 <div className="form-group">
                     <label style={{fontSize:'18px', fontWeight:'bold'}}>Event Name:</label>
-                  <input type="text" className="form-control" id="title" name="title" placeholder="Event name" required />
+                  <input onChange={onName} type="text" className="form-control" id="title" name="title" placeholder="Event name" required />
                 </div>
                 
                 <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>Description:</label>
-                <textarea className="form-control" type="textarea" name="description" id="description" placeholder="Write the description of the event" maxlength="140" rows="7"></textarea>
+                <textarea onChange={onDescription} className="form-control" type="textarea" name="description" id="description" placeholder="Write the description of the event" maxlength="140" rows="7"></textarea>
                 </div>
 
                 <div className="form-group">
                     <label style={{fontSize:'18px', fontWeight:'bold'}}>Location</label>
-                  <input type="text" className="form-control" id="city" name="city" placeholder="Location of the city" required />
+                  <input onChange={onLocation} type="text" className="form-control" id="city" name="city" placeholder="Location of the city" required />
                 </div>
 
                 <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>Points Given:</label>
-                  <input type="text" className="form-control" id="points" name="points" placeholder="Points participants will earn" required />
+                  <input onChange={onPoints} type="text" className="form-control" id="points" name="points" placeholder="Points participants will earn" required />
                 </div>
 
                 <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>Start Time:</label>
-                  <input type="text" className="form-control" id="startTime" name="startTime" placeholder="Start Time" required />
+                  
+
+                <DateTimePicker onChange={setStartTime} value={start_time} className="form-control" id="startTime" name="startTime" />
+
+                  {/* <input onChange={onStartTime} type="text" className="form-control" id="startTime" name="startTime" placeholder="Start Time" required /> */}
                 </div>
+
+                <div>
+
+                <div>
+      {/* <DateTimePicker onChange={onStartTime} value={start_time} className="form-control" id="startTime" name="startTime" /> */}
+    </div>
+                
+            </div>
+
 
                 <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>End Time:</label>
-                  <input type="text" className="form-control" id="endTime" name="endTime" placeholder="End Time" required />
+                <DateTimePicker onChange={setEndTime} value={end_time} className="form-control" id="endTime" name="endTime" />
+
+                  {/* <input onChange={onEndTime} type="text" className="form-control" id="endTime" name="endTime" placeholder="End Time" required /> */}
                 </div>
+
+
                    
-              <button type="button" id="submit" name="submit" className="btn btn-primary pull-right">Add Event</button>
+              <button onClick={onSubmit} type="button" id="submit" name="submit" className="btn btn-primary pull-right">Add Event</button>
               </form>
           </div>
         </div>
