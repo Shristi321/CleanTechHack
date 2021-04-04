@@ -4,7 +4,7 @@ var {createDocument, readInfo} = require('../firestore');
 exports.get_posts = async (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     console.log(req.body)
-    const info=await readInfo('event')
+    const info=await readInfo('posts')
     console.log(info)
     res.json(info)
 };
@@ -24,7 +24,7 @@ exports.create_posts = async (req, res) => {
         minute = '0' + minute
     }
     const date = hour + ":" + minute + ' ' + month + '/' + day + '/' + year
-    
+
     var a = {
         name: req.body.data.activityType,
         additionalInfo: req.body.data.additionalInfo,

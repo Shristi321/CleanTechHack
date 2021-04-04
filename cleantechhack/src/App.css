@@ -83,21 +83,35 @@ h1{
 
 }
 
+.date {
+  font-size: 1.2vmin;
+  color:rgb(148, 148, 148);
+  margin-top: 1.5vmin
+}
+
 .post{
-  padding: 30px;
+  padding: 2vmin;
   border: 0px solid red;
-  width: 50%;
-  margin-left: 25%;
-  margin-top: 1%;
+  width: 60vmin;
+  /* height: 50vmin; */
+  margin-top: 2vmin;
   background-color: #f4f4f4;
+  border-radius: 2vmin;
 }
 
 .post_image{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+  height: 30vmin;
+  margin-top: 2vmin;
 }
+
+.userpic {
+  height:5vmin;
+  border-radius:2.5vmin;
+  border: 0.1vmin solid teal;
+  margin-left: 2vmin;
+  margin-right: 2vmin;
+}
+
 
 
 

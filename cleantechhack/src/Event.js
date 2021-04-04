@@ -1,8 +1,14 @@
+import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
+import Col from "react-bootstrap/Col"
 import './App.css'
+import Nav from 'react-bootstrap/Nav'
+import Row from 'react-bootstrap/Row'
 const Event = ({eventname, description, organizer, city, points, startTime, endTime, numberOfParticipants }) => {
     const MY_DOMAIN = 'http://localhost:3000'
     return (
-        <div className="event">
+        <Container className="post">
             {/* <div className="creator_info">
                 <img className="" src={`${MY_DOMAIN}/homepic.jpeg`} width="100px" height="100px" alt="post_image"/>
                 
@@ -34,7 +40,7 @@ const Event = ({eventname, description, organizer, city, points, startTime, endT
 
             <br/>
             
-        </div>
+        </Container>
     )
 }
 
