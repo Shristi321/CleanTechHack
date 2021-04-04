@@ -77,7 +77,13 @@ var updatePoints = async (collection, data) => {
     points.push(`${pointsToAdd}`)
     console.log(points, id)
 
-    await db.collection(collection).doc(id).update({points: points})
+    const month = nowDate.getMonth() + 1
+    const day = nowDate.getDate()
+    const year = nowDate.getFullYear()
+
+    const date =month + '/' + day + '/' + year
+
+    await db.collection(collection).doc(id).update({points: points, activeDate: date})
 
 } 
 
