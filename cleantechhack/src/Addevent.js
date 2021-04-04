@@ -58,6 +58,7 @@ const Addevent = () => {
     const temp = data
     temp.points = value
     setData(temp)
+    console.log(temp);
     console.log(temp)
   }
 
