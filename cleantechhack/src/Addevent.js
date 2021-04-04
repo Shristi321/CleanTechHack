@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col"
 import './App.css'
 import Nav from 'react-bootstrap/Nav'
 import './App.css'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import OurNav from './OurNav'
 import * as React from 'react';
 import DateTimePicker from 'react-datetime-picker';
@@ -24,8 +24,17 @@ const Addevent = () => {
     date: '',
   })
 
-  const [start_time, onStartTime] = useState(new Date()); 
-  const [end_time, onEndTime] = useState(new Date());   
+  const [start_time, setStartTime] = useState(new Date()); 
+  const [end_time, setEndTime] = useState(new Date());   
+
+  useEffect(()=> {
+    const temp = data
+
+    // make start time and end time look prettier!!
+    temp.startTime = start_time
+    temp.endTime = end_time
+    setData(temp)
+  },[start_time,end_time])
 
   const onName = ({target:{value}}) => {
     const temp = data
@@ -44,29 +53,19 @@ const Addevent = () => {
     setData(temp)
   }
 
-  // const onStartTime = ({target:{value}}) => {
-  //   const temp = data
-  //   temp.startTime = value
-  //   setData(temp)
-  // }
-
-  // const onEndTime = ({target:{value}}) => {
-  //   const temp = data
-  //   temp.endTime = value
-  //   setData(temp)
-  // }
 
   const onPoints = ({target:{value}}) => {
     const temp = data
     temp.points = value
     setData(temp)
+    console.log(temp)
   }
 
-  const onDate = ({target:{value}}) => {
-    const temp = data
-    temp.date = value
-    setData(temp)
-  }
+  // const onDate = ({target:{value}}) => {
+  //   const temp = data
+  //   temp.date = value
+  //   setData(temp)
+  // }
 
   const onSubmit = () => {
     console.log(data)
@@ -123,7 +122,7 @@ const Addevent = () => {
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>Start Time:</label>
                   
 
-                <DateTimePicker onChange={onStartTime} value={start_time} className="form-control" id="startTime" name="startTime" />
+                <DateTimePicker onChange={setStartTime} value={start_time} className="form-control" id="startTime" name="startTime" />
 
                   {/* <input onChange={onStartTime} type="text" className="form-control" id="startTime" name="startTime" placeholder="Start Time" required /> */}
                 </div>
@@ -139,15 +138,12 @@ const Addevent = () => {
 
                 <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>End Time:</label>
-                <DateTimePicker onChange={onEndTime} value={end_time} className="form-control" id="endTime" name="endTime" />
+                <DateTimePicker onChange={setEndTime} value={end_time} className="form-control" id="endTime" name="endTime" />
 
                   {/* <input onChange={onEndTime} type="text" className="form-control" id="endTime" name="endTime" placeholder="End Time" required /> */}
                 </div>
 
-                <div className="form-group">
-                <label style={{fontSize:'18px', fontWeight:'bold'}}>Date</label>
-                  <input onChange={onDate} type="text" className="form-control" id="endTime" name="endTime" placeholder="MM/DD/YY" required />
-                </div>
+
                    
               <button onClick={onSubmit} type="button" id="submit" name="submit" className="btn btn-primary pull-right">Add Event</button>
               </form>
