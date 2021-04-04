@@ -109,7 +109,7 @@ const Dashboard = () => {
             <OurNav />
             <Container>
                 <Row className="justify-content-md-center">
-                    <img className='profilepic' src={`${MY_DOMAIN}/homepic.jpeg`}></img>
+                    <img className='profilepic' src={`${MY_DOMAIN}/Pokemon.jpeg`} alt="Porfile Page"></img>
                 </Row>
                 <Row className="justify-content-md-center">
                     <h2 style={{margin:'2vmin 0 0 0', padding:'0 0 0 1vmin'}}>{data.firstName+' '+data.lastName}</h2>

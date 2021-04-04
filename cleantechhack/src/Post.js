@@ -21,7 +21,7 @@ const Post = ({fullname, city, caption, date}) => {
             </Row>
            
             <Row className="justify-content-md-center">
-            <img className="post_image" src={`${MY_DOMAIN}/homepic.jpeg`} alt="post_image"/>
+            <img className="post_image" src={`${MY_DOMAIN}/plants.jpeg`} width="700px" alt="post_image"/>
             </Row>
             <h4 style={{marginTop: '3vmin', marginLeft: '1vmin',fontSize:'1.5vmin', fontWeight:'bold'}}>{fullname} <span style={{fontWeight: 'lighter'}}>{caption}</span> </h4> 
 
