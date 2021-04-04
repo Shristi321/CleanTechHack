@@ -7,16 +7,36 @@ import './App.css'
 import Nav from 'react-bootstrap/Nav'
 import './dashboard.css'
 import OurNav from './OurNav'
+import useFeed from './useFeed'
 
 const Feed = () => {
-    return (
-        <div>
+    const {data, dataReceived} = useFeed()
+
+    console.log(data)
+
+    if (dataReceived) {
+        return (
+            <div>
+                <OurNav />
+                {data.map((datum,i)=> {
+                    return (
+                        <Post
+                            key={i}
+                            fullname='Carolyn Wang'
+                            caption={datum.description}
+                            city={datum.location}
+                            date={datum.date}
+                            // eventually pass picture here
+                
+                        />
+                )})}
+            </div>
+        )
+    } else {
+        return (
             <OurNav />
-            <Post fullname="asdf asdf" city="NYC" caption="I walked 3 miles today!" />
-            <Post fullname="fdsa fdsa" city="Madison" caption="Recycled!" />
-            <Post fullname="qwerty" city="Minneapolis" caption="I planted a tree" />
-        </div>
-    )
+        )
+    }
 }
 
 export default Feed

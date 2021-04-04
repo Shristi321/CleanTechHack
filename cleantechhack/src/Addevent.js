@@ -121,10 +121,11 @@ const Addevent = () => {
                 <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>Start Time:</label>
                   
-                <DateTimePicker type="number" format={"dd-MM-yyyy hh:mm:ss a"} disableClock={true} onChange={setStartTime} value={start_time} className="form-control" id="startTime" name="startTime" />
+                <DateTimePicker  format={"dd-MM-yyyy hh:mm:ss a"} disableClock={true} onChange={setStartTime} value={start_time} className="form-control" id="startTime" name="startTime" />
 
                 {/* <DateTimePicker type="number" format={"dd-MM-yyyy hh:mm:ss a"} disableClock={true} onChange={setStartTime} value={start_time} className="form-control" id="startTime" name="startTime" /> */}
                 {/* <DateTimePicker format={"dd-MM-yyyy hh:mm:ss a"} disableClock={true} onChange={onStartTime} value={start_time} className="form-control" id="startTime" name="startTime" /> */}
+                {/* <DateTimePicker onChange={setStartTime} value={start_time} className="form-control" id="startTime" name="startTime" /> */}
 
                   {/* <input onChange={onStartTime} type="text" className="form-control" id="startTime" name="startTime" placeholder="Start Time" required /> */}
                 </div>
@@ -144,6 +145,7 @@ const Addevent = () => {
 
                 {/* <DateTimePicker format={"dd-MM-yyyy hh:mm:ss a"} disableClock={true} onChange={setEndTime} value={end_time} className="form-control" id="endTime" name="endTime" /> */}
                 {/* <DateTimePicker format={"dd-MM-yyyy hh:mm:ss a"} onChange={onEndTime} value={end_time} className="form-control" id="endTime" name="endTime" /> */}
+                {/* <DateTimePicker onChange={setEndTime} value={end_time} className="form-control" id="endTime" name="endTime" /> */}
 
                   {/* <input onChange={onEndTime} type="text" className="form-control" id="endTime" name="endTime" placeholder="End Time" required /> */}
                 </div>

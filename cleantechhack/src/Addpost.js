@@ -54,18 +54,18 @@ const Addpost = () => {
     
   const onSubmit = () => {
     console.log(data)
-    // const postNewPost = async () => {
-    //   await fetch('http://localhost:3001/event', {
-    //   method: 'POST',
-    //   mode: 'cors',
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({data}),
-    //   });
-    // }
-    // postNewPost()
+      const postPost = async () => {
+        await fetch('http://localhost:3001/post', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({data}),
+        });
+      }
+      postPost()
     console.log('Your post is posted')
   }
 
