@@ -24,10 +24,14 @@ var readInfo = async (collection) => {
     console.log('No matching documents.');
     return;
     }  
-
+    
+    var data = []
     snapshot.forEach(doc => {
-    console.log(doc.id, '=>', doc.data());
+    const item = doc.data()
+    data.push(item)
     });
+
+    return data
 }
 
 module.exports = {createDocument, readInfo};

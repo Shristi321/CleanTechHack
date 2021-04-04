@@ -38,10 +38,11 @@ var {createDocument, readInfo} = require('../firestore');
 
 // Display User information.
 exports.get_events = async (req, res) => {
-    req.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "*");
     console.log(req.body)
     const info=await readInfo('event')
     console.log(info)
+    res.json(info)
 };
 
 // Handle User information update on POST.
