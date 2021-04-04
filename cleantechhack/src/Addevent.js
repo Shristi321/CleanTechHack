@@ -8,6 +8,9 @@ import Nav from 'react-bootstrap/Nav'
 import './App.css'
 import {useState} from 'react'
 import OurNav from './OurNav'
+import * as React from 'react';
+import DateTimePicker from 'react-datetime-picker';
+
 
 const Addevent = () => {
 
@@ -20,6 +23,9 @@ const Addevent = () => {
     points: '',
     date: '',
   })
+
+  const [start_time, onStartTime] = useState(new Date()); 
+  const [end_time, onEndTime] = useState(new Date());   
 
   const onName = ({target:{value}}) => {
     const temp = data
@@ -38,17 +44,17 @@ const Addevent = () => {
     setData(temp)
   }
 
-  const onStartTime = ({target:{value}}) => {
-    const temp = data
-    temp.startTime = value
-    setData(temp)
-  }
+  // const onStartTime = ({target:{value}}) => {
+  //   const temp = data
+  //   temp.startTime = value
+  //   setData(temp)
+  // }
 
-  const onEndTime = ({target:{value}}) => {
-    const temp = data
-    temp.endTime = value
-    setData(temp)
-  }
+  // const onEndTime = ({target:{value}}) => {
+  //   const temp = data
+  //   temp.endTime = value
+  //   setData(temp)
+  // }
 
   const onPoints = ({target:{value}}) => {
     const temp = data
@@ -115,12 +121,27 @@ const Addevent = () => {
 
                 <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>Start Time:</label>
-                  <input onChange={onStartTime} type="text" className="form-control" id="startTime" name="startTime" placeholder="Start Time" required />
+                  
+
+                <DateTimePicker onChange={onStartTime} value={start_time} className="form-control" id="startTime" name="startTime" />
+
+                  {/* <input onChange={onStartTime} type="text" className="form-control" id="startTime" name="startTime" placeholder="Start Time" required /> */}
                 </div>
+
+                <div>
+
+                <div>
+      {/* <DateTimePicker onChange={onStartTime} value={start_time} className="form-control" id="startTime" name="startTime" /> */}
+    </div>
+                
+            </div>
+
 
                 <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>End Time:</label>
-                  <input onChange={onEndTime} type="text" className="form-control" id="endTime" name="endTime" placeholder="End Time" required />
+                <DateTimePicker onChange={onEndTime} value={end_time} className="form-control" id="endTime" name="endTime" />
+
+                  {/* <input onChange={onEndTime} type="text" className="form-control" id="endTime" name="endTime" placeholder="End Time" required /> */}
                 </div>
 
                 <div className="form-group">
