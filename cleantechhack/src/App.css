@@ -165,4 +165,12 @@ h1{
 
 }
 
+.leaderboard{
+  border: 0px solid rgb(0, 255, 34);
+  background-color: #f4f4f4;
+  clear: both;
+  display: block;
+  overflow: auto;
+}
+
 
