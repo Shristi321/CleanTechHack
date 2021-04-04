@@ -122,7 +122,11 @@ const Addevent = () => {
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>Start Time:</label>
                   
 
+<<<<<<< HEAD
                 <DateTimePicker onChange={setStartTime} value={start_time} className="form-control" id="startTime" name="startTime" />
+=======
+                <DateTimePicker format={"dd-MM-yyyy hh:mm:ss a"} disableClock={true} onChange={onStartTime} value={start_time} className="form-control" id="startTime" name="startTime" />
+>>>>>>> f3cf9f986bd816cbf7fde1b30a5041f8c9cceed7
 
                   {/* <input onChange={onStartTime} type="text" className="form-control" id="startTime" name="startTime" placeholder="Start Time" required /> */}
                 </div>
@@ -138,7 +142,11 @@ const Addevent = () => {
 
                 <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>End Time:</label>
+<<<<<<< HEAD
                 <DateTimePicker onChange={setEndTime} value={end_time} className="form-control" id="endTime" name="endTime" />
+=======
+                <DateTimePicker format={"dd-MM-yyyy hh:mm:ss a"} onChange={onEndTime} value={end_time} className="form-control" id="endTime" name="endTime" />
+>>>>>>> f3cf9f986bd816cbf7fde1b30a5041f8c9cceed7
 
                   {/* <input onChange={onEndTime} type="text" className="form-control" id="endTime" name="endTime" placeholder="End Time" required /> */}
                 </div>
