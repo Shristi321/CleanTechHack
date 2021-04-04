@@ -7,25 +7,44 @@ import './App.css'
 import Nav from 'react-bootstrap/Nav'
 import './dashboard.css'
 import OurNav from './OurNav'
+import {useState} from 'react'
+import useEvents from './useEvents'
 
 const Events = () => {
-    const getEvents = async () => {
-        const response = await fetch('http://localhost:3001/event/location', {
-            method: 'GET',
-            mode: 'cors',
-        });
+    
+    const {data, dataReceived} = useEvents()
 
-        console.log(response)
-    }
+    
+    if (dataReceived) {
+        return (
+            <div>
+                <OurNav />
+                {data.map((datum,i)=> {
+                            // console.log(task, i)
+                    return (
+                        <Event
+                            key={i}
+                            eventname={datum.name}
+                            description={datum.description}
+                            city={datum.location}
+                            points={datum.points}
+                            startTime={datum.startTime}
+                            endTime={datum.endTime}
+                            numberOfParticipants={datum.participants}
+                
+                        />
 
-    getEvents()
-    return (
-        <div>
+                            
+                )})}
+                
+            </div>
+        )
+    } else {
+        return (
             <OurNav />
-            <Event eventname="Plant a tree" description="Join us to plant a tree"  organizer= "ASDF" city="NYC" points= "5" startTime="21st April 10:00am" endTime="21st April 11:30am" numberOfParticipants="27" />
-            <Event eventname="Recycle" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."  organizer= "QWERTY" city="Minneapolis" points= "20" startTime="2nd April 9:00am" endTime="3rd April 1:00pm" numberOfParticipants="35" />
-        </div>
-    )
+        )
+
+    }
 }
 
 export default Events
