@@ -18,6 +18,7 @@ const Addevent = () => {
     startTime: '',
     endTime: '',
     points: '',
+    date: '',
   })
 
   const onName = ({target:{value}}) => {
@@ -52,6 +53,12 @@ const Addevent = () => {
   const onPoints = ({target:{value}}) => {
     const temp = data
     temp.points = value
+    setData(temp)
+  }
+
+  const onDate = ({target:{value}}) => {
+    const temp = data
+    temp.date = value
     setData(temp)
   }
 
@@ -114,6 +121,11 @@ const Addevent = () => {
                 <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>End Time:</label>
                   <input onChange={onEndTime} type="text" className="form-control" id="endTime" name="endTime" placeholder="End Time" required />
+                </div>
+
+                <div className="form-group">
+                <label style={{fontSize:'18px', fontWeight:'bold'}}>Date</label>
+                  <input onChange={onDate} type="text" className="form-control" id="endTime" name="endTime" placeholder="MM/DD/YY" required />
                 </div>
                    
               <button onClick={onSubmit} type="button" id="submit" name="submit" className="btn btn-primary pull-right">Add Event</button>

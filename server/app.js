@@ -20,7 +20,7 @@ app.options('*', (req, res) => {
   
     res.sendStatus(200);
   
-  });
+});
 
 app.use('/dashboard', dashboardRouter);
 app.use('/', eventsRouter);

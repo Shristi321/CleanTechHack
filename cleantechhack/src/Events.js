@@ -10,15 +10,15 @@ import OurNav from './OurNav'
 
 const Events = () => {
     const getEvents = async () => {
-        const response = await fetch('http://localhost:3001/event/oakland', {
+        const response = await fetch('http://localhost:3001/event/location', {
             method: 'GET',
             mode: 'cors',
         });
 
-        return response
+        console.log(response)
     }
 
-    console.log(getEvents())
+    getEvents()
     return (
         <div>
             <OurNav />

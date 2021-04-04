@@ -18,4 +18,16 @@ var createDocument = async (collection, data) => {
     await docRef.set(data);
 } 
 
-module.exports = {createDocument};
+var readInfo = async (collection) => {
+    const snapshot = await db.collection(collection).where('location', '==', 'Oakland').get();
+    if (snapshot.empty) {
+    console.log('No matching documents.');
+    return;
+    }  
+
+    snapshot.forEach(doc => {
+    console.log(doc.id, '=>', doc.data());
+    });
+}
+
+module.exports = {createDocument, readInfo};

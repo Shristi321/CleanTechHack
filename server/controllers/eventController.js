@@ -1,7 +1,7 @@
 var User = require('../models/user');
 var Event = require('../models/Event');
 var admin  = require('../app');
-var {createDocument} = require('../firestore');
+var {createDocument, readInfo} = require('../firestore');
 // const fs = require('fs');
 // // const AWS = require('aws-sdk');
 // const {ID, key} = require('../keys');
@@ -37,13 +37,16 @@ var {createDocument} = require('../firestore');
 
 
 // Display User information.
-exports.get_events = (req, res) => {
-    res.send('Not implemented');
+exports.get_events = async (req, res) => {
+    req.header("Access-Control-Allow-Origin", "*");
+    console.log(req.body)
+    const info=await readInfo('event')
+    console.log(info)
 };
 
 // Handle User information update on POST.
 exports.create_events = async (req, res) => {
-    console.log(req)
+    res.header("Access-Control-Allow-Origin", "*");
     var a = {
         name: req.body.data.name,
         description: req.body.data.description,
