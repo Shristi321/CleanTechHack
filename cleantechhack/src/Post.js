@@ -12,7 +12,7 @@ const Post = ({fullname, city, caption, date}) => {
         <Container className='post'>
             
             <Row className="creator_info">
-                <img className="userpic" src={`${MY_DOMAIN}/homepic.jpeg`} alt="post_image"/>
+                <img className="userpic" src={`${MY_DOMAIN}/Pokemon.jpeg`} alt="post_image"/>
                 
                 <span style={{marginTop: '1.4vmin',fontSize:'1.5vmin', fontWeight:'bold'}}>{fullname}, {city}</span>
                 <Col md={3} className="ml-auto">
