@@ -6,13 +6,14 @@ import Col from "react-bootstrap/Col"
 import './App.css'
 import Nav from 'react-bootstrap/Nav'
 import './App.css'
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useRef} from 'react'
 import OurNav from './OurNav'
 import * as React from 'react';
 import DateTimePicker from 'react-datetime-picker';
 
 
 const Addevent = () => {
+  const fileRef = useRef(null)
 
   const [data, setData] = useState({
     name: '',
@@ -22,6 +23,7 @@ const Addevent = () => {
     endTime: '',
     points: '',
     date: '',
+    image:'',
   })
 
   const [start_time, setStartTime] = useState(new Date()); 
@@ -35,6 +37,15 @@ const Addevent = () => {
     temp.endTime = end_time
     setData(temp)
   },[start_time,end_time])
+
+
+  const handleImage = () => {
+    const file = fileRef.current
+    console.log(file.files[0])
+    const temp = data
+    temp.image = file.files[0]
+    setData(temp)
+  }
 
   const onName = ({target:{value}}) => {
     const temp = data
@@ -59,7 +70,6 @@ const Addevent = () => {
     temp.points = value
     setData(temp)
     console.log(temp);
-    console.log(temp)
   }
 
   // const onDate = ({target:{value}}) => {
@@ -122,8 +132,11 @@ const Addevent = () => {
                 <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>Start Time:</label>
                   
+                <DateTimePicker  format={"dd-MM-yyyy hh:mm:ss a"} disableClock={true} onChange={setStartTime} value={start_time} className="form-control" id="startTime" name="startTime" />
 
-                <DateTimePicker onChange={setStartTime} value={start_time} className="form-control" id="startTime" name="startTime" />
+                {/* <DateTimePicker type="number" format={"dd-MM-yyyy hh:mm:ss a"} disableClock={true} onChange={setStartTime} value={start_time} className="form-control" id="startTime" name="startTime" /> */}
+                {/* <DateTimePicker format={"dd-MM-yyyy hh:mm:ss a"} disableClock={true} onChange={onStartTime} value={start_time} className="form-control" id="startTime" name="startTime" /> */}
+                {/* <DateTimePicker onChange={setStartTime} value={start_time} className="form-control" id="startTime" name="startTime" /> */}
 
                   {/* <input onChange={onStartTime} type="text" className="form-control" id="startTime" name="startTime" placeholder="Start Time" required /> */}
                 </div>
@@ -139,14 +152,19 @@ const Addevent = () => {
 
                 <div className="form-group">
                 <label style={{fontSize:'18px', fontWeight:'bold'}}>End Time:</label>
-                <DateTimePicker onChange={setEndTime} value={end_time} className="form-control" id="endTime" name="endTime" />
+                <DateTimePicker format={"dd-MM-yyyy hh:mm:ss a"} disableClock={true} onChange={setEndTime} value={end_time} className="form-control" id="endTime" name="endTime" />
+
+                {/* <DateTimePicker format={"dd-MM-yyyy hh:mm:ss a"} disableClock={true} onChange={setEndTime} value={end_time} className="form-control" id="endTime" name="endTime" /> */}
+                {/* <DateTimePicker format={"dd-MM-yyyy hh:mm:ss a"} onChange={onEndTime} value={end_time} className="form-control" id="endTime" name="endTime" /> */}
+                {/* <DateTimePicker onChange={setEndTime} value={end_time} className="form-control" id="endTime" name="endTime" /> */}
 
                   {/* <input onChange={onEndTime} type="text" className="form-control" id="endTime" name="endTime" placeholder="End Time" required /> */}
                 </div>
+                <input onChange={handleImage} ref={fileRef} type="file" name="event_picture" id="event_picture"/><br/>
 
 
                    
-              <button onClick={onSubmit} type="button" id="submit" name="submit" className="btn btn-primary pull-right">Add Event</button>
+              <button href="/events" onClick={onSubmit} type="button" id="submit" name="submit" className="btn btn-primary pull-right">Add Event</button>
               </form>
           </div>
         </div>

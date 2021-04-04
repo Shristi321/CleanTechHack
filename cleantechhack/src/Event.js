@@ -23,7 +23,7 @@ const Event = ({eventname, description, organizer, city, points, startTime, endT
                 <label style={{fontWeight:'bold'}} > Location: </label> {city}<br/>
                 <label style={{fontWeight:'bold'}} > Points: </label> {points}<br/>
                 <label style={{fontWeight:'bold'}} > Time: </label> {startTime} - {endTime}<br/><br/>
-                <label style={{fontWeight:'bold', color:'green', fontSize:'25px'}} > {numberOfParticipants} </label> are attending!
+                <label style={{fontWeight:'bold', color:'teal', fontSize:'25px'}} > {numberOfParticipants} </label> are attending!
             </div>
 
             <div className="event_pic">
@@ -31,7 +31,7 @@ const Event = ({eventname, description, organizer, city, points, startTime, endT
             </div>
 
             <div className="attendButton" >
-                <button className="attendEvent"> Attend</button>
+                <Button variant='info'> Attend</Button>
             </div>
            
 {/* 

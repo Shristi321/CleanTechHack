@@ -26,6 +26,8 @@ const Post = ({fullname, city, caption, date}) => {
             <h4 style={{marginTop: '3vmin', marginLeft: '1vmin',fontSize:'1.5vmin', fontWeight:'bold'}}>{fullname} <span style={{fontWeight: 'lighter'}}>{caption}</span> </h4> 
 
             <br/>
+
+
             
         
         </Container>

@@ -32,6 +32,16 @@ const Addpost = () => {
   }
 
   const [selected, setSelected] = React.useState("");
+
+
+  const [isPrivate, setPrivate]= useState(false);
+
+  const makePrivate= ()=>{
+    setPrivate(!isPrivate);
+  }
+
+
+
   
   /** Function that will set different values to state variable
    * based on which dropdown is selected
@@ -150,7 +160,10 @@ const Addpost = () => {
                 {/* <label style={{fontSize:'18px', fontWeight:'bold'}}>Description:</label> */}
                 <textarea onChange={onDescription} className="form-control" type="textarea" name="description" id="description" placeholder="Write the description of the event" maxlength="140" rows="7"></textarea>
                 </div>
-                <input type="file" name="event_picture" id="event_picture"/>
+                <input type="file" name="event_picture" id="event_picture"/> <br/>
+
+                <label htmlFor="makeitPrivate">Check the box if you want to make yur activity private: </label>
+                <input onClick={makePrivate} type="checkbox" id="makeitPrivate" name="makeitPrivate" value={isPrivate} ></input><br/>
 
               <button onClick={onSubmit} type="button" id="submit" name="submit" className="btn btn-primary pull-right">POST</button>
               </form>
@@ -202,9 +215,12 @@ const Addpost = () => {
                         {/* <label style={{fontSize:'18px', fontWeight:'bold'}}>Description:</label> */}
                         <textarea onChange={onDescription} className="form-control" type="textarea" name="description" id="description" placeholder="Write the description of the event" maxlength="140" rows="7"></textarea>
                         </div>
-                        <input type="file" name="event_picture" id="event_picture"/>
+                        <input type="file" name="event_picture" id="event_picture"/><br/>
+
+                      <label htmlFor="makeitPrivate">Check the box if you want to make yur activity private: </label>
+                      <input onClick={makePrivate} type="checkbox" id="makeitPrivate" name="makeitPrivate" value={isPrivate} ></input><br/>
         
-                      <button onClick={onSubmit} type="button" id="submit" name="submit" className="btn btn-primary pull-right">POST</button>
+                      <button href='/feed' onClick={onSubmit} type="button" id="submit" name="submit" className="btn btn-primary pull-right">POST</button>
                       </form>
                   </div>
                 </div>
