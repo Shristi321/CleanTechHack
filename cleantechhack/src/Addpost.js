@@ -8,27 +8,70 @@ import Nav from 'react-bootstrap/Nav'
 import './App.css'
 import * as React from "react";
 import OurNav from './OurNav'
+import {useState} from 'react'
 
 const Addpost = () => {
 
 
 
 
-    const [selected, setSelected] = React.useState("");
+    const [data, setData] = useState({
+        activityType: '',
+        description: '',
+        event_picture: '',
+        
+      })
+    
+      const onActivityType = ({target:{value}}) => {
+        const temp = data
+        temp.name = value
+        setData(temp)
+      }
+    
+      const onDescription = ({target:{value}}) => {
+        const temp = data
+        temp.description = value
+        setData(temp)
+      }
+
+      const [selected, setSelected] = React.useState("");
   
-    /** Function that will set different values to state variable
-     * based on which dropdown is selected
-     */
-    const changeSelectOptionHandler = (event) => {
-      setSelected(event.target.value);
-    };
+      /** Function that will set different values to state variable
+       * based on which dropdown is selected
+       */
+      const changeSelectOptionHandler = (event) => {
+        setSelected(event.target.value);
+        const temp=data;
+        temp.activityType = event.target.value
+        setData(temp);
+      };
+    
+      
+    
+      const onSubmit = () => {
+        console.log(data)
+        const postNewPost = async () => {
+          await fetch('http://localhost:3001/event', {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({data}),
+          });
+        }
+        postNewPost()
+        console.log('Your post is posted')
+      }
+
+
+
+
+   
     
     /** Different arrays for different dropdowns */
-    const algorithm = [
-      "Searching Algorithm",
-      "Sorting Algorithm",
-      "Graph Algorithm",
-    ];
+   
     const meat = ["Omnivore", "Vegeterian"];
     const transit = ["Carpooling", "Walking", "Biking", "Public Transit"];
     
@@ -61,7 +104,6 @@ const Addpost = () => {
         <div className="addpost">
             <div className="creator_info">
                 <img className="" src={`${MY_DOMAIN}/homepic.jpeg`} width="100px" height="100px" alt="post_image"/>
-                
                 <span style={{fontSize:'20px', fontWeight:'bold'}}>Your Name, Your City</span>
             </div>
 
@@ -91,7 +133,7 @@ const Addpost = () => {
         </div>
 
         <div>
-          <select className="form-control">
+          <select className="form-control" name="activityType" id="activityType">
             {
               /** This is where we have used our options variable */
               options
@@ -102,11 +144,11 @@ const Addpost = () => {
                 
                 <div className="form-group">
                 {/* <label style={{fontSize:'18px', fontWeight:'bold'}}>Description:</label> */}
-                <textarea className="form-control" type="textarea" name="description" id="description" placeholder="Write the description of the event" maxlength="140" rows="7"></textarea>
+                <textarea onChange={onDescription} className="form-control" type="textarea" name="description" id="description" placeholder="Write the description of the event" maxlength="140" rows="7"></textarea>
                 </div>
-                <input type="file" />
+                <input type="file" name="event_picture" id="event_picture"/>
 
-              <button type="button" id="submit" name="submit" className="btn btn-primary pull-right">POST</button>
+              <button onClick={onSubmit} type="button" id="submit" name="submit" className="btn btn-primary pull-right">POST</button>
               </form>
           </div>
         </div>
@@ -139,7 +181,7 @@ const Addpost = () => {
                     
                 <div>
                   
-                  <select name="eventType" id="eventType" onChange={changeSelectOptionHandler} className="form-control">
+                  <select name="activityType" id="activityType" onChange={changeSelectOptionHandler} className="form-control">
                     <option>Choose your activity</option>
                     <option value="Picking up trash">Picking up trash</option>
                     <option value="Recycling">Recycling</option>
@@ -154,11 +196,11 @@ const Addpost = () => {
                         
                         <div className="form-group">
                         {/* <label style={{fontSize:'18px', fontWeight:'bold'}}>Description:</label> */}
-                        <textarea className="form-control" type="textarea" name="description" id="description" placeholder="Write the description of the event" maxlength="140" rows="7"></textarea>
+                        <textarea onChange={onDescription} className="form-control" type="textarea" name="description" id="description" placeholder="Write the description of the event" maxlength="140" rows="7"></textarea>
                         </div>
-                        <input type="file" />
+                        <input type="file" name="event_picture" id="event_picture"/>
         
-                      <button type="button" id="submit" name="submit" className="btn btn-primary pull-right">POST</button>
+                      <button onClick={onSubmit} type="button" id="submit" name="submit" className="btn btn-primary pull-right">POST</button>
                       </form>
                   </div>
                 </div>
