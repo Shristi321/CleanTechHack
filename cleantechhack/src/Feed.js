@@ -26,6 +26,7 @@ const Feed = () => {
                             caption={datum.description}
                             city={datum.location}
                             date={datum.date}
+                            url={datum.url}
                             // eventually pass picture here
                 
                         />

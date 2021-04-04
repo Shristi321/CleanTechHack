@@ -113,7 +113,6 @@ var updatePoints = async (collection, data) => {
     const date =month + '/' + day + '/' + year
 
     await db.collection(collection).doc(id).update({points: points, activeDate: date})
-
 } 
 
 module.exports = {createDocument, readInfo, updatePoints, login, logout, signUp};

@@ -41,7 +41,7 @@ const Home = () => {
                 
                 
                 <Row className="justify-content-md-center">
-    
+                <Button href="/login" style={buttonStyle} variant ='info'>Login</Button>
                 <Button href="/signup" style={buttonStyle} variant ='info'>Sign Up</Button>
                 </Row>
 
