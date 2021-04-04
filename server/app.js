@@ -1,4 +1,5 @@
 const express = require('express')
+const cookieParser = require('cookie-parser');
 const app = express()
 var bodyParser = require('body-parser')
 require('./firestore');
@@ -6,12 +7,15 @@ const port = 3001
 
 var dashboardRouter = require('./routes/dashboard');
 var eventsRouter = require('./routes/events');
+var usersRouter = require('./routes/user');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
+app.use(cookieParser());
+
 
 app.options('*', (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -22,8 +26,11 @@ app.options('*', (req, res) => {
   
 });
 
+
+
 app.use('/dashboard', dashboardRouter);
 app.use('/', eventsRouter);
+app.use('/', usersRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello, world!')

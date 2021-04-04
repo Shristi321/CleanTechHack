@@ -1,5 +1,6 @@
 const admin = require('firebase-admin');
-
+var firebase = require("firebase/app");
+require("firebase/auth");
 var serviceAccount = require('../service-account-file.json');
 
 admin.initializeApp({
@@ -9,6 +10,34 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
+var firebaseConfig = {
+    apiKey: "AIzaSyA-GwSvYvt07TfsZKUPPdu6jXalrWKIcPY",
+    authDomain: "cleantechhack.firebaseapp.com",
+    databaseURL: "https://cleantech.firebaseio.com",
+    projectId: "cleantechhack",
+    storageBucket: "cleantechhack.appspot.com",
+    messagingSenderId: "848742411674",
+    appId: "1:848742411674:web:7f938ecbaf78bd9ab55e23"
+  };
+
+firebase.initializeApp(firebaseConfig);
+
+var signUp = async (email,password) => {
+    const userData = await firebase.auth().createUserWithEmailAndPassword(email, password);
+    var user = userData.user;
+}
+
+
+var login = async (email, password) => {
+        const userData = await firebase.auth().signInWithEmailAndPassword(email, password);
+        var user = userData.user;
+}
+
+
+
+var logout = async () => {
+        const userData = await firebase.auth().signOut();
+}
 
 var createDocument = async (collection, data) => {
     console.log('Data')
@@ -34,4 +63,4 @@ var readInfo = async (collection) => {
     return data
 }
 
-module.exports = {createDocument, readInfo};
+module.exports = {createDocument, readInfo, login, logout, signUp};
