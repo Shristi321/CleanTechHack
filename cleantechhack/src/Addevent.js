@@ -164,7 +164,7 @@ const Addevent = () => {
 
 
                    
-              <button onClick={onSubmit} type="button" id="submit" name="submit" className="btn btn-primary pull-right">Add Event</button>
+              <button href="/events" onClick={onSubmit} type="button" id="submit" name="submit" className="btn btn-primary pull-right">Add Event</button>
               </form>
           </div>
         </div>

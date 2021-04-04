@@ -220,7 +220,7 @@ const Addpost = () => {
                       <label htmlFor="makeitPrivate">Check the box if you want to make yur activity private: </label>
                       <input onClick={makePrivate} type="checkbox" id="makeitPrivate" name="makeitPrivate" value={isPrivate} ></input><br/>
         
-                      <button onClick={onSubmit} type="button" id="submit" name="submit" className="btn btn-primary pull-right">POST</button>
+                      <button href='/feed' onClick={onSubmit} type="button" id="submit" name="submit" className="btn btn-primary pull-right">POST</button>
                       </form>
                   </div>
                 </div>

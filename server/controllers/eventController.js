@@ -55,7 +55,8 @@ exports.create_events = async (req, res) => {
         location: req.body.data.location,
         points: req.body.data.points,
         startTime: req.body.data.startTime,
-        endTime: req.body.data.endTime
+        endTime: req.body.data.endTime,
+        participants: "0"
     };
 
     // uploadFile(req.image)
