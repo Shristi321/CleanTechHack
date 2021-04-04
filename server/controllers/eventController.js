@@ -2,10 +2,11 @@ var User = require('../models/user');
 var Event = require('../models/Event');
 var admin  = require('../app');
 var {createDocument, readInfo} = require('../firestore');
-// const fs = require('fs');
-// // const AWS = require('aws-sdk');
+const fs = require('fs');
+// const AWS = require('aws-sdk');
 // const {ID, key} = require('../keys');
 // const BUCKET_NAME = 'post-photos-cleantech';
+// const AWS = require('aws-sdk');
 
 // const s3 = new AWS.S3({
 //     accessKeyId: ID,
@@ -19,8 +20,8 @@ var {createDocument, readInfo} = require('../firestore');
 //     // Setting up S3 upload parameters
 //     const params = {
 //         Bucket: BUCKET_NAME,
-//         Key: 'cat.jpg', // File name you want to save as in S3
-//         Body: fileContent
+//         Key: `${fileName}.jpg`, // File name you want to save as in S3
+//         Body: fileName
 //     };
 
 //     // Uploading files to the bucket
@@ -32,7 +33,7 @@ var {createDocument, readInfo} = require('../firestore');
 //     });
 // };
 
-// uploadFile(cat.jpg)
+ 
 
 
 
@@ -56,6 +57,8 @@ exports.create_events = async (req, res) => {
         startTime: req.body.data.startTime,
         endTime: req.body.data.endTime
     };
+
+    // uploadFile(req.image)
 
 
     await createDocument('event', a)

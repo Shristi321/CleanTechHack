@@ -6,13 +6,14 @@ import Col from "react-bootstrap/Col"
 import './App.css'
 import Nav from 'react-bootstrap/Nav'
 import './App.css'
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useRef} from 'react'
 import OurNav from './OurNav'
 import * as React from 'react';
 import DateTimePicker from 'react-datetime-picker';
 
 
 const Addevent = () => {
+  const fileRef = useRef(null)
 
   const [data, setData] = useState({
     name: '',
@@ -22,6 +23,7 @@ const Addevent = () => {
     endTime: '',
     points: '',
     date: '',
+    image:'',
   })
 
   const [start_time, setStartTime] = useState(new Date()); 
@@ -35,6 +37,15 @@ const Addevent = () => {
     temp.endTime = end_time
     setData(temp)
   },[start_time,end_time])
+
+
+  const handleImage = () => {
+    const file = fileRef.current
+    console.log(file.files[0])
+    const temp = data
+    temp.image = file.files[0]
+    setData(temp)
+  }
 
   const onName = ({target:{value}}) => {
     const temp = data
@@ -149,6 +160,7 @@ const Addevent = () => {
 
                   {/* <input onChange={onEndTime} type="text" className="form-control" id="endTime" name="endTime" placeholder="End Time" required /> */}
                 </div>
+                <input onChange={handleImage} ref={fileRef} type="file" name="event_picture" id="event_picture"/><br/>
 
 
                    
