@@ -1,4 +1,4 @@
-var {createDocument, readInfo} = require('../firestore');
+var {createDocument, readInfo, updatePoints} = require('../firestore');
 
 // Display posts.
 exports.get_posts = async (req, res) => {
@@ -39,8 +39,16 @@ exports.create_posts = async (req, res) => {
 
     console.log(req.body)
 
+    const b = {
+        name: req.body.data.activityType,
+        additionalInfo: req.body.data.additionalInfo,
+        userID: '123'
+    }
+
 
     await createDocument('posts', a)
+
+    await updatePoints('users',b)
 
     res.send({status: 'success'});
 };
