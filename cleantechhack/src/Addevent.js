@@ -60,6 +60,7 @@ const Addevent = () => {
     const temp = data
     temp.points = value
     setData(temp)
+    console.log(temp);
   }
 
   const onDate = ({target:{value}}) => {
