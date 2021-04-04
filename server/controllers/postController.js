@@ -23,6 +23,7 @@ exports.create_posts = async (req, res) => {
     if (minute < 10) {
         minute = '0' + minute
     }
+    
     const date = hour + ":" + minute + ' ' + month + '/' + day + '/' + year
 
     var a = {
