@@ -18,7 +18,7 @@ const Home = () => {
         <div>   
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand style={logoStyle}href="#home">EcoTracker</Navbar.Brand>
+                    <Navbar.Brand style={logoStyle}href="#home">Eco Log</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     {/* <Navbar.Collapse id="basic-navbar-nav"> */}
 

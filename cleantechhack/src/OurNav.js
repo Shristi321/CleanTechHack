@@ -13,7 +13,7 @@ const OurNav = () => {
         <div>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand style={{ color: 'teal'}}href="/">EcoTracker</Navbar.Brand>
+                    <Navbar.Brand style={{ color: 'teal'}}href="/">Eco Log</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
