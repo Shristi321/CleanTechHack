@@ -59,7 +59,7 @@ const LogIn = () => {
                 </Col>
             </Form.Row> 
 
-            <Button href={`/dashboard/`} style={{margin:"2vmin 0 0 0"}} onClick={handleSubmit} variant="info" type="submit">
+            <Button href={`/feed/`} style={{margin:"2vmin 0 0 0"}} onClick={handleSubmit} variant="info" type="submit">
                 Submit
             </Button>
             </Form>

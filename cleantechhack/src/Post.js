@@ -6,13 +6,13 @@ import './App.css'
 import Nav from 'react-bootstrap/Nav'
 import Row from 'react-bootstrap/Row'
 
-const Post = ({fullname, city, caption, date}) => {
+const Post = ({fullname, city, caption, date, url}) => {
     const MY_DOMAIN = 'http://localhost:3000'
     return (
         <Container className='post'>
             
             <Row className="creator_info">
-                <img className="userpic" src={`${MY_DOMAIN}/homepic.jpeg`} alt="post_image"/>
+                <img className="userpic" src={`${MY_DOMAIN}/Pokemon.jpeg`} alt="post_image"/>
                 
                 <span style={{marginTop: '1.4vmin',fontSize:'1.5vmin', fontWeight:'bold'}}>{fullname}, {city}</span>
                 <Col md={3} className="ml-auto">
@@ -21,7 +21,7 @@ const Post = ({fullname, city, caption, date}) => {
             </Row>
            
             <Row className="justify-content-md-center">
-            <img className="post_image" src={`${MY_DOMAIN}/homepic.jpeg`} alt="post_image"/>
+            <img className="post_image" src={`${url}`} width="700px" alt="post_image"/>
             </Row>
             <h4 style={{marginTop: '3vmin', marginLeft: '1vmin',fontSize:'1.5vmin', fontWeight:'bold'}}>{fullname} <span style={{fontWeight: 'lighter'}}>{caption}</span> </h4> 
 
